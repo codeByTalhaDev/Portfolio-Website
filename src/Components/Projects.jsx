@@ -1,10 +1,9 @@
 import ProjectCard from "./ProjectCard";
-import enquiryImg from "../assets/Enquiry.png";
 
 const Projects = () => {
   const projects = [
     {
-      image: enquiryImg,
+      image: "https://picsum.photos/500/300",
       title: "Customer Enquiry Dashboard",
       desc: "A full-stack MERN enquiry management system with complete CRUD functionality",
       tech: "• React.js • Node.js • Express.js • MongoDB",
