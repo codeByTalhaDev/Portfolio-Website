@@ -3,13 +3,13 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-950 border-t border-gray-800 px-4 sm:px-6 md:px-12 lg:px-20 py-12 text-gray-400">
+    <footer className="overflow-hidden bg-gray-950 border-t border-gray-800 px-4 sm:px-6 md:px-12 lg:px-20 py-12 text-gray-400">
 
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row justify-between gap-12">
 
         {/* Brand Section */}
-        <div data-aos="fade-right" className="max-w-md">
+        <div data-aos="fade-up" className="max-w-md">
           <h2 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-4">
             Talha Dev
           </h2>
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
 
         {/* Social Section */}
-        <div data-aos="fade-left">
+        <div data-aos="fade-up">
           <h3 className="text-lg sm:text-xl font-semibold mb-4 text-white">
             Connect
           </h3>

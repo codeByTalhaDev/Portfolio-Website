@@ -19,12 +19,11 @@ const Hero = () => {
         </h1>
 
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-4 sm:mb-6">
-          React Frontend Developer
+           MERN Stack Developer
         </h2>
 
         <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-6 sm:leading-7 md:leading-8 mb-6 sm:mb-8 md:mb-10">
-          I build modern, responsive and user-friendly web applications using
-          React and Tailwind CSS.
+          I build modern, responsive and user-friendly web applications using the MERN Stack(React,Node.js,Express,MongoDB ).
         </p>
 
         {/* Buttons */}
