@@ -1,96 +1,115 @@
-import { MdEmail } from "react-icons/md";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { FaCircle } from "react-icons/fa";
 
 const Footer = () => {
+  const [time, setTime] = useState("");
+
+  // Live Clock
+  useEffect(() => {
+    const updateClock = () => {
+      const now = new Date();
+
+      setTime(
+        now.toLocaleTimeString("en-PK", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        })
+      );
+    };
+
+    updateClock();
+
+    const interval = setInterval(updateClock, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <footer className="overflow-hidden bg-gray-950 border-t border-gray-800 px-4 sm:px-6 md:px-12 lg:px-20 py-12 text-gray-400">
+    <footer className="bg-[#050505] border-t border-gray-800">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
+        {/* Thank You */}
+        <div className="text-center">
+          <p className="uppercase tracking-[5px] text-cyan-400 text-sm font-semibold">
+            Thank You
+          </p>
 
-      {/* Main Content */}
-      <div className="flex flex-col lg:flex-row justify-between gap-12">
-
-        {/* Brand Section */}
-        <div data-aos="fade-up" className="max-w-md">
-          <h2 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-4">
-            Talha Dev
+          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+            Thanks for Visiting My Portfolio
           </h2>
 
-          <p className="text-sm sm:text-base text-gray-400 leading-7 mb-4">
-            Frontend Developer focused on building modern,
-            responsive and interactive web applications.
-          </p>
-
-          <p className="text-cyan-400 font-medium text-sm sm:text-base">
-            Open for Freelance & Internships
+          <p className="mt-5 max-w-2xl mx-auto text-gray-400 leading-8 text-sm sm:text-base">
+            I truly appreciate you taking the time to explore my portfolio.
+            I'm always excited to learn new technologies, solve real-world
+            problems, and collaborate on meaningful software projects.
           </p>
         </div>
 
-        {/* Contact Section */}
-        <div data-aos="fade-up">
-          <h3 className="text-lg sm:text-xl font-semibold mb-4 text-white">
-            Contact
-          </h3>
+        {/* Developer Status */}
+        <div className="mt-14 bg-black border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
+          {/* Header */}
+          <div className="flex items-center gap-2 px-5 py-3 border-b border-gray-800 bg-gray-900">
+            <span className="w-3 h-3 rounded-full bg-red-500"></span>
+            <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span className="w-3 h-3 rounded-full bg-green-500"></span>
 
-          <div className="space-y-3 text-sm sm:text-base">
-            <p className="hover:text-cyan-400 transition">
-              📍 Gujranwala, Pakistan
-            </p>
+            <span className="ml-3 text-gray-400 text-sm font-mono">
+              talha@portfolio:~
+            </span>
+          </div>
 
-            <p className="hover:text-cyan-400 transition break-all">
-              📧 talhamughal02148@gmail.com
-            </p>
+          {/* Console */}
+          <div className="p-6 font-mono text-sm md:text-base">
+            <p className="text-cyan-400">&gt; portfolio.status</p>
 
-            <p className="hover:text-cyan-400 transition">
-              📞 +92 317 7914821
-            </p>
+            <div className="mt-5 space-y-4">
+              <p className="text-gray-300">
+                <span className="text-gray-500">Status</span>
+                {" : "}
+                <span className="inline-flex items-center gap-2 text-green-400">
+                  <FaCircle size={8} />
+                  Available for Opportunities
+                </span>
+              </p>
+
+              <p className="text-gray-300">
+                <span className="text-gray-500">Current Focus</span>
+                {" : "}
+                MERN Stack • AWS • DevOps
+              </p>
+
+              <p className="text-gray-300">
+                <span className="text-gray-500">Local Time</span>
+                {" : "}
+                {time} (PKT)
+              </p>
+
+              <p className="text-gray-300">
+                <span className="text-gray-500">Version</span>
+                {" : "}
+                Portfolio v1.0
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Social Section */}
-        <div data-aos="fade-up">
-          <h3 className="text-lg sm:text-xl font-semibold mb-4 text-white">
-            Connect
-          </h3>
+        {/* Bottom */}
+        <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-500 text-sm text-center md:text-left">
+            © {new Date().getFullYear()} Muhammad Talha. All Rights Reserved.
+          </p>
 
-          <div className="flex gap-5 text-2xl">
-
-            {/* GitHub */}
-            <a
-              href="https://github.com/codeByTalhaDev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-cyan-400 hover:-translate-y-1 transition duration-300"
-            >
-              <FaGithub />
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-cyan-400 hover:-translate-y-1 transition duration-300"
-            >
-              <FaLinkedin />
-            </a>
-
-            {/* Email */}
-            <a
-              href="mailto:talhamughal0785@gmail.com"
-              className="hover:text-cyan-400 hover:-translate-y-1 transition duration-300"
-            >
-              <MdEmail />
-            </a>
-
-          </div>
+          <p className="text-gray-500 text-sm text-center">
+            Designed & Developed with{" "}
+            <span className="text-red-500">❤️</span>{" "}
+            by{" "}
+            <span className="text-cyan-400 font-medium">
+              Muhammad Talha
+            </span>
+          </p>
         </div>
-
       </div>
-
-      {/* Bottom Bar */}
-      <div className="text-center text-gray-500 mt-10 pt-6 border-t border-gray-800 text-sm sm:text-base">
-        © 2026 Talha Dev. All rights reserved.
-      </div>
-
     </footer>
   );
 };

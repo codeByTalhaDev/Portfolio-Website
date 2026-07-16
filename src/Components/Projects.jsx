@@ -1,48 +1,80 @@
 import ProjectCard from "./ProjectCard";
 
-const Projects = () => {
-  const projects = [
-    {
-      image: "https://picsum.photos/500/300",
-      title: "Customer Enquiry Dashboard",
-      desc: "A full-stack MERN enquiry management system with complete CRUD functionality",
-      tech: "• React.js • Node.js • Express.js • MongoDB",
-      GithubLink: "https://github.com/codeByTalhaDev/Enquiry-Form-Project",
-    },
-    {
-      image: "https://picsum.photos/500/300",
-      title: "CRUD App",
-      desc: "Full stack CRUD application using MERN stack.",
-      tech: "React Node MongoDB",
-      GithubLink: "https://github.com/codeByTalhaDev/Enquiry-Form-Project",
-    },
-    {
-      image: "https://picsum.photos/500/300",
-      title: "Todo App",
-      desc: "Task management application with clean UI.",
-      tech: "React CSS",
-      GithubLink: "https://github.com/codeByTalhaDev/Enquiry-Form-Project",
-    },
-  ];
+import SalesManagement from "../assets/sales-management-system.png";
+import EnquirySystem from "../assets/enquiry-form.png";
 
+const projects = [
+  {
+    title: "Sales Management System",
+    image: SalesManagement,
+
+    desc: "A full-stack ERP-style Sales Management System featuring authentication, customer, supplier, employee, inventory, and purchase management with Docker support.",
+
+    tech:
+      "React, Node.js, Express.js, MySQL, Sequelize, Tailwind CSS, Docker",
+
+    GithubLink:
+      "https://github.com/codeByTalhaDev/Sales_Management_System",
+
+    LiveLink: "",
+  },
+
+  {
+    title: "Customer Enquiry Management System",
+
+    image: EnquirySystem,
+
+    desc: "A MERN Stack application to create, manage, update, search, and delete customer enquiries through a responsive dashboard.",
+
+    tech:
+      "React, Node.js, Express.js, MongoDB",
+
+    GithubLink:
+      "https://github.com/codeByTalhaDev/Enquiry-Form-Project",
+
+    LiveLink: "",
+  },
+];
+
+const Projects = () => {
   return (
     <section
       id="projects"
-      className="px-4 sm:px-6 md:px-12 lg:px-20 py-16 md:py-20 bg-gray-950 text-white"
+      className="bg-gray-950 text-white py-20 px-5 sm:px-8 lg:px-20"
     >
-      {/* Heading */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 md:mb-4">
-        Projects
-      </h2>
+      <div className="max-w-7xl mx-auto">
 
-      {/* Grid */}
-      <div
-        data-aos="fade-up"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-      >
-        {projects.map((project, index) => (
-          <ProjectCard data-aos="zoom-in" key={index} {...project} />
-        ))}
+        {/* Heading */}
+
+        <div
+          data-aos="fade-up"
+          className="text-center mb-14"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold">
+            My <span className="text-cyan-400">Projects</span>
+          </h2>
+
+          <div className="w-24 h-1 bg-cyan-400 rounded-full mx-auto mt-4"></div>
+
+          <p className="text-gray-400 mt-5 max-w-2xl mx-auto">
+            Here are some projects I've developed using modern technologies.
+          </p>
+
+        </div>
+
+        {/* Cards */}
+
+        <div className="grid lg:grid-cols-2 gap-8">
+
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              {...project}
+            />
+          ))}
+
+        </div>
+
       </div>
     </section>
   );

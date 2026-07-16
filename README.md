@@ -1,16 +1,192 @@
-# React + Vite
+<h1 align="center">Muhammad Talha - Portfolio</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <b>Full Stack Developer | MERN Stack | React | Node.js | AWS & DevOps Enthusiast</b>
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  A modern, responsive, and high-performance developer portfolio built with React, Vite, and Tailwind CSS.
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📖 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio showcases my technical skills, projects, and experience as a Computer Science student and Full Stack Developer. It highlights real-world applications I've built while focusing on clean UI, responsive design, and modern web development practices.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- Modern & Responsive UI
+- Interactive Hero Section
+- Professional About Section
+- Skills Showcase
+- Project Gallery with Detail Modal
+- Contact Form powered by EmailJS
+- Resume Viewer
+- Animated Page Transitions (AOS)
+- Loading Screen
+- Scroll Progress Bar
+- Back to Top Button
+- SEO Optimized
+- Mobile Friendly
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- React.js
+- Vite
+- Tailwind CSS
+
+### Libraries
+
+- React Icons
+- React Scroll
+- React Hot Toast
+- EmailJS
+- AOS (Animate On Scroll)
+- React Type Animation
+
+### Tools
+
+- Git
+- GitHub
+- VS Code
+
+---
+
+## 📂 Project Structure
+
+```text
+portfolio/
+│
+├── public/
+├── src/
+│   ├── assets/
+│   ├── Components/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/codeByTalhaDev/Portfolio.git
+```
+
+### Navigate to the project
+
+```bash
+cd Portfolio
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 📸 Preview
+
+> Replace the image below with a screenshot of your portfolio homepage.
+
+```text
+public/
+└── preview.png
+```
+
+<p align="center">
+  <img src="./public/preview.png" alt="Portfolio Preview" width="900">
+</p>
+
+---
+
+## 📌 Featured Projects
+
+### Sales Management System
+
+A full-stack ERP-style application featuring:
+
+- JWT Authentication
+- Customer Management
+- Supplier Management
+- Employee Management
+- Product & Inventory Management
+- Purchase Module
+- Docker Support
+
+**Tech Stack**
+
+React • Node.js • Express.js • MySQL • Sequelize • Docker • Tailwind CSS
+
+---
+
+### Customer Enquiry Management System
+
+A MERN Stack application providing complete enquiry management with responsive user interface and REST APIs.
+
+**Tech Stack**
+
+React • Node.js • Express.js • MongoDB
+
+---
+
+## 📬 Contact
+
+**Muhammad Talha**
+
+📧 Email: **talhamughal02148@gmail.com**
+
+📍 Gujranwala, Pakistan
+
+### Connect with Me
+
+- GitHub: https://github.com/codeByTalhaDev
+- LinkedIn: https://linkedin.com/in/codebytalhadev
+
+---
+
+## 🤝 Contributions
+
+Contributions, suggestions, and feedback are always welcome.
+
+If you find this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<p align="center">
+  Built with ❤️ by <b>Muhammad Talha</b>
+</p>

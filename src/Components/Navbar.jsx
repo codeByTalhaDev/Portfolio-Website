@@ -1,93 +1,146 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
-import { HiMenu, HiX } from "react-icons/hi";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [nav, setNav] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navLinks = [
-    { name: "Home", to: "home" },
-    { name: "About", to: "about" },
-    { name: "Skills", to: "skills" },
-    { name: "Projects", to: "projects" },
-    { name: "Contact", to: "contact" },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const links = ["home", "about", "skills", "projects", "contact"];
 
   return (
-    <nav className="flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 bg-black text-white border-b border-gray-800 sticky top-0 z-50">
-      {/* Logo */}
-      <Link
-        to="home"
-        smooth={true}
-        duration={500}
-        spy={true}
-        activeClass="text-cyan-400"
-        className="cursor-pointer text-xl sm:text-2xl md:text-3xl font-bold text-cyan-400"
-      >
-        {"<Talha Dev />"}
-      </Link>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-gray-950/90 backdrop-blur-xl border-b border-gray-800 shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="h-20 flex items-center justify-between">
 
-      {/* Desktop Links */}
-      <ul className="hidden md:flex gap-6 lg:gap-8 text-base lg:text-lg">
-        {navLinks.map((item, index) => (
-          <li key={index}>
-            <Link
-              to={item.to}
-              smooth={true}
-              duration={500}
-              spy={true}
-              activeClass="text-cyan-400"
-              className="cursor-pointer hover:text-cyan-400 transition"
+          {/* Logo */}
+          <Link
+            to="home"
+            smooth
+            duration={500}
+            offset={-70}
+            spy
+            className="text-3xl font-extrabold cursor-pointer select-none"
+          >
+            <span className="text-cyan-400">Talha</span>
+            <span className="text-white">Dev</span>
+          </Link>
+
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex items-center gap-10">
+
+            {links.map((item) => (
+              <li key={item}>
+                <Link
+                  to={item}
+                  smooth
+                  duration={500}
+                  spy
+                  offset={-70}
+                  activeClass="text-cyan-400 after:w-full"
+                  className="
+                    relative
+                    capitalize
+                    cursor-pointer
+                    text-gray-300
+                    hover:text-cyan-400
+                    transition-all
+                    duration-300
+                    font-medium
+
+                    after:absolute
+                    after:left-0
+                    after:-bottom-1
+                    after:h-[2px]
+                    after:w-0
+                    after:bg-cyan-400
+                    after:transition-all
+                    after:duration-300
+
+                    hover:after:w-full
+                  "
+                >
+                  {item}
+                </Link>
+              </li>
+            ))}
+
+            {/* Resume */}
+            <a
+              href="/Talha_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-cyan-400 hover:scale-105 transition-all duration-300"
             >
-              {item.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+              Resume
+            </a>
 
-      {/* Resume Button (Desktop) */}
-      <a
-        href="/Talha_Resume.pdf"
-        target="_blank"
-        className="hidden md:block bg-cyan-500 px-3 md:px-4 py-2 rounded-lg hover:bg-cyan-400 transition text-sm md:text-base"
-      >
-        Resume
-      </a>
+          </ul>
 
-      {/* Mobile Menu Button */}
-      <button className="md:hidden text-3xl" onClick={() => setOpen(!open)}>
-        {open ? <HiX /> : <HiMenu />}
-      </button>
+          {/* Mobile Button */}
+          <button
+            onClick={() => setNav(!nav)}
+            className="md:hidden text-3xl text-white"
+          >
+            {nav ? <HiX /> : <HiMenuAlt3 />}
+          </button>
+
+        </div>
+      </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div className="absolute top-16 left-0 w-full bg-black border-t border-gray-800 flex flex-col items-center gap-6 py-6 md:hidden">
-          {navLinks.map((item, index) => (
-            <Link
-              key={index}
-              to={item.to}
-              smooth={true}
-              duration={500}
-              spy={true}
-              activeClass="text-cyan-400"
-              onClick={() => setOpen(false)}
-              className="text-lg hover:text-cyan-400"
-            >
-              {item.name}
-            </Link>
+      <div
+        className={`md:hidden fixed top-20 left-0 w-full bg-gray-950/95 backdrop-blur-xl border-t border-gray-800 transition-all duration-300 ${
+          nav ? "translate-y-0" : "-translate-y-[120%]"
+        }`}
+      >
+        <ul className="flex flex-col items-center py-8 gap-8">
+
+          {links.map((item) => (
+            <li key={item}>
+              <Link
+                to={item}
+                smooth
+                duration={500}
+                spy
+                offset={-70}
+                activeClass="text-cyan-400"
+                onClick={() => setNav(false)}
+                className="capitalize text-xl text-gray-300 hover:text-cyan-400 transition cursor-pointer"
+              >
+                {item}
+              </Link>
+            </li>
           ))}
 
-          {/* Resume Mobile */}
           <a
             href="/Talha_Resume.pdf"
             target="_blank"
-            className="bg-cyan-500 px-5 py-2 rounded-lg hover:bg-cyan-400"
+            rel="noopener noreferrer"
+            className="bg-cyan-500 text-black px-6 py-3 rounded-xl font-semibold hover:bg-cyan-400 transition-all duration-300"
           >
             Resume
           </a>
-        </div>
-      )}
-    </nav>
+
+        </ul>
+      </div>
+    </header>
   );
 };
 
